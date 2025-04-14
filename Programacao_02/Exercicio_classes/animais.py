@@ -8,10 +8,10 @@ class Animal:
 
     def info(self):
         print("Info sobre animal cadastrado")
-        print(f'{self.nome}')
-        print(f'{self.especie}')
-        print(f'{self.velocidade}')
-        print(f'{self.habitat}')        
+        print(f'Nome do animal: {self.nome}')
+        print(f'Especie do animal: {self.especie}')
+        print(f'Velocidade do Animal: {self.velocidade}km/h')
+        print(f'Habitat do Animal: {self.habitat}')        
 
     
 class Repteis(Animal):
@@ -26,7 +26,7 @@ class Repteis(Animal):
 
     def info(self):
         super().info()
-        print(f'{self.escamas}')
+        print(f'Tipo de Escama: {self.escamas}')
         
 class Escama(Enum):
     PLACOIDES = "PLACOIDES"
@@ -42,7 +42,7 @@ class Aves(Animal):
         
 if __name__ == '__main__':
     try:
-        caso1 = Repteis("Lagarto", "Reptil", "15", "anfibio", "ASFJKHASFJKASHFASHFKSA")
+        caso1 = Repteis("Lagarto", "Reptil", "15", "anfibio", "LISAS")
         caso1.info()
     except AttributeError as e:
         print(e)       
