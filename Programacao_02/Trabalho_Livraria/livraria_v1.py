@@ -76,63 +76,84 @@ class livraria:
             valor_total += livro['estoque'] * livro['valor']
         return valor_total
     
-    def menu(self):
-        # Exibe o menu de opções
-        while True:
-            print("1 – Cadastrar novo livro")
-            print("2 – Listar livros")
-            print("3 – Buscar livros por nome")
-            print("4 – Buscar livros por categoria")
-            print("5 – Buscar livros por preço")
-            print("6 – Busca por quantidade em estoque")
-            print("7 – Valor total no estoque")
-            print("0 – Encerrar atividades")
-            
-            opcao = int(input("Escolha uma opção: "))
-            
-            if opcao == 1:
-                editora = input("Digite a editora: ")
-                titulo = input("Digite o título: ")
-                ano = int(input("Digite o ano: "))
-                valor = float(input("Digite o valor: "))
-                area = input("Digite a área: ")
-                estoque = int(input("Digite a quantidade em estoque: "))
-                self.cadastrar_livro(editora, titulo, ano, valor, area, estoque)
-            
-            elif opcao == 2:
-                self.listar_livros()
-            
-            elif opcao == 3:
-                nome = input("Digite o nome do livro: ")
-                livro = self.buscar_livro_por_nome(nome)
-                if livro:
-                    print(f"Livro encontrado: {livro}")
-                else:
-                    print("Livro não encontrado.")
-            
-            elif opcao == 4:
-                categoria = input("Digite a categoria: ")
-                livros_encontrados = self.buscar_livros_por_categoria(categoria)
-                if livros_encontrados:
-                    for livro in livros_encontrados:
-                        print(livro)
-                else:
-                    print("Nenhum livro encontrado nessa categoria.")
-            
-            elif opcao == 5:
-                preco = float(input("Digite o preço: "))
-                livros_encontrados = self.buscar_livros_por_preco(preco)
-                if livros_encontrados:
-                    for livro in livros_encontrados:
-                        print(livro)
-                else:
-                    print("Nenhum livro encontrado com preço menor que esse.")
-            
-            elif opcao == 6:
-                quantidade = int(input("Digite a quantidade em estoque: "))
-                livros_encontrados = self.buscar_livros_por_estoque(quantidade)
-                if livros_encontrados:
-                    for livro in livros_encontrados:
-                        print(livro)
-                else:
-                    print("Nenhum livro encontrado com quantidade em estoque maior que essa.")
+if __name__ == '__main__':
+    # Exibe o menu de opções
+    print("Bem-vindo à Livraria!")
+    print("Escolha uma opção:")
+
+    # Cria uma instância da classe livraria
+    livraria_instance = livraria(editora="", titulo="", ano=0, valor=0.0, area="", estoque=0, codigo=1)
+    
+
+    while True:
+        print("1 – Cadastrar novo livro")
+        print("2 – Listar livros")
+        print("3 – Buscar livros por nome")
+        print("4 – Buscar livros por categoria")
+        print("5 – Buscar livros por preço")
+        print("6 – Busca por quantidade em estoque")
+        print("7 – Valor total no estoque")
+        print("0 – Encerrar atividades")
+        
+        opcao = int(input("Escolha uma opção: "))
+        
+        if opcao == 1:
+            editora = input("Digite a editora: ")
+            titulo = input("Digite o título: ")
+            ano = int(input("Digite o ano: "))
+            valor = float(input("Digite o valor: "))
+            area = input("Digite a área: ")
+            estoque = int(input("Digite a quantidade em estoque: "))
+            livraria_instance.cadastrar_livro(editora, titulo, ano, valor, area, estoque)
+            print("Livro cadastrado com sucesso!")
+            StopIteration
+        
+        elif opcao == 2:
+            livraria_instance.listar_livros()
+        
+        elif opcao == 3:
+            nome = input("Digite o nome do livro: ")
+            livro = livraria_instance.buscar_livro_por_nome(nome)
+            if livro:
+                print(f"Livro encontrado: {livro}")
+            else:
+                print("Livro não encontrado.")
+        
+        elif opcao == 4:
+            categoria = input("Digite a categoria: ")
+            livros_encontrados = livraria_instance.buscar_livros_por_categoria(categoria)
+            if livros_encontrados:
+                for livro in livros_encontrados:
+                    print(livro)
+            else:
+                print("Nenhum livro encontrado nessa categoria.")
+        
+        elif opcao == 5:
+            preco = float(input("Digite o preço: "))
+            livros_encontrados = livraria_instance.buscar_livros_por_preco(preco)
+            if livros_encontrados:
+                for livro in livros_encontrados:
+                    print(livro)
+            else:
+                print("Nenhum livro encontrado com preço menor que esse.")
+        
+        elif opcao == 6:
+            quantidade = int(input("Digite a quantidade em estoque: "))
+            livros_encontrados = livraria_instance.buscar_livros_por_estoque(quantidade)
+            if livros_encontrados:
+                for livro in livros_encontrados:
+                    print(livro)
+            else:
+                print("Nenhum livro encontrado com quantidade em estoque maior que essa.")
+
+        elif opcao == 7:
+            valor_total = livraria_instance.valor_total_estoque()
+            print(f"Valor total em estoque: R$ {valor_total:.2f}")
+
+        elif opcao == 0:
+            print("Encerrando atividades...")
+            break
+        
+        else:
+            print("Opção inválida. Tente novamente.")
+        print("")
