@@ -105,8 +105,6 @@ if __name__ == '__main__':
             area = input("Digite a área: ")
             estoque = int(input("Digite a quantidade em estoque: "))
             livraria_instance.cadastrar_livro(editora, titulo, ano, valor, area, estoque)
-            print("Livro cadastrado com sucesso!")
-            StopIteration
         
         elif opcao == 2:
             livraria_instance.listar_livros()

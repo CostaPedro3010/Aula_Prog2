@@ -1,0 +1,3 @@
+Panvel Barra,1234,Barra Shopping,137
+Panvel Centro,4563,Rua da Praia Shopping,13
+Petiskeira,1256,Shopping Praia de Bela,36
